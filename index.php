@@ -116,6 +116,7 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
         return;
         $message = json_encode($instanceDetails, JSON_PRETTY_PRINT);
     echo "$message\n";
+        echo "Debug: Scriptul a ajuns notifier\n";
     if ($notifier->isSupported()) {
         $notifier->notify($message);
     }
