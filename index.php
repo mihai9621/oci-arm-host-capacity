@@ -57,10 +57,12 @@ $notifier = (function (): \Hitrov\Interfaces\NotifierInterface {
      * if you have own https://core.telegram.org/bots
      * and set TELEGRAM_BOT_API_KEY and your TELEGRAM_USER_ID in .env
      *
+     
      * then you can get notified when script will succeed.
      * otherwise - don't mind OR develop you own NotifierInterface
      * to e.g. send SMS or email.
      */
+    echo "Debug: Scriptul a ajuns aici!\n";
     return new \Hitrov\Notification\Telegram();
 })();
 
@@ -112,6 +114,11 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
 
         // current config is broken
         return;
+        $message = json_encode($instanceDetails, JSON_PRETTY_PRINT);
+    echo "$message\n";
+    if ($notifier->isSupported()) {
+        $notifier->notify($message);
+    }
     }
 
     // success
