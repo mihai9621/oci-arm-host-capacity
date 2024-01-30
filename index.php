@@ -108,18 +108,12 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
             strpos($message, 'Out of host capacity') !== false
         ) {
             // trying next availability domain
-            sleep(16);
+            sleep(21);
             continue;
         }
 
         // current config is broken
         return;
-    $message = "test";
-    echo "$message\n";
-        echo "Debug: Scriptul a ajuns notifier\n";
-    if ($notifier->isSupported()) {
-        $notifier->notify($message);
-    }
     }
 
     // success
