@@ -114,7 +114,7 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
 
         // current config is broken
         return;
-    $message = "test"
+    $message = "test";
     echo "$message\n";
         echo "Debug: Scriptul a ajuns notifier\n";
     if ($notifier->isSupported()) {
