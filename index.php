@@ -62,7 +62,7 @@ $notifier = (function (): \Hitrov\Interfaces\NotifierInterface {
      * otherwise - don't mind OR develop you own NotifierInterface
      * to e.g. send SMS or email.
      */
-    echo "Debug: Scriptul a ajuns aici!\n";
+
     return new \Hitrov\Notification\Telegram();
 })();
 
@@ -98,9 +98,9 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
     } catch(ApiCallException $e) {
         $message = $e->getMessage();
         echo "$message\n";
-//            if ($notifier->isSupported()) {
-//                $notifier->notify($message);
-//            }
+           if ($notifier->isSupported()) {
+                $notifier->notify($message);
+           }
 
         if (
             $e->getCode() === 500 &&
@@ -114,7 +114,7 @@ foreach ($availabilityDomains as $availabilityDomainEntity) {
 
         // current config is broken
         return;
-        $message = json_encode($instanceDetails, JSON_PRETTY_PRINT);
+    $message = "test"
     echo "$message\n";
         echo "Debug: Scriptul a ajuns notifier\n";
     if ($notifier->isSupported()) {
